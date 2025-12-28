@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Flondy Development – Best mobile games, apps and software since 2014." />
+  <title>Flondy Development</title>
+
+  <style>
+    :root{
+      --bg:#00ff00;
+      --card:#808080;
+      --footer:#6c6c6c;
+      --text:#000;
+      --muted:rgba(0,0,0,.8);
+      --border:rgba(0,0,0,.25);
+      --shadow:0 14px 36px rgba(0,0,0,.2);
+      --radius:18px;
+      --max:1050px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max);margin:auto;padding:16px}
+
+    header,section,footer,nav{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+      margin-top:12px;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    .brand{font-weight:900}
+    .badge{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.12);
+      border:1px solid rgba(0,0,0,.2);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:160px 1fr;
+      gap:16px;
+      align-items:center;
+    }
+    .logo{
+      min-height:140px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+    }
+    .hero h1{margin:0 0 6px}
+    .hero p{margin:0;color:var(--muted)}
+
+    .btn{
+      display:inline-flex;
+      gap:8px;
+      padding:12px 16px;
+      border-radius:999px;
+      background:rgba(0,0,0,.15);
+      border:1px solid rgba(0,0,0,.2);
+      font-weight:800;
+    }
+
+    .quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(0,255,0,.95);
+    }
+    .navgrid{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:10px;
+    }
+    .navgrid a{
+      background:var(--card);
+      padding:10px;
+      text-align:center;
+      border-radius:14px;
+      font-weight:900;
+      border:2px solid rgba(0,0,0,.2);
+      box-shadow:inset 0 0 14px rgba(0,255,0,.4);
+    }
+
+    section h2{margin:0 0 10px}
+    .panel{
+      background:rgba(0,0,0,.08);
+      border:1px solid rgba(0,0,0,.2);
+      border-radius:14px;
+      padding:12px;
+    }
+
+    .cards{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      display:flex;
+      gap:12px;
+      padding:12px;
+      border-radius:16px;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(0,0,0,.2);
+      min-width:240px;
+      align-items:center;
+    }
+    .card strong{display:block}
+    .card span{font-size:13px;color:var(--muted)}
+
+    footer small{display:block;line-height:1.5}
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .navgrid{grid-template-columns:repeat(3,1fr)}
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap" id="home">
+
+<header>
+  <div class="topbar">
+    <div class="brand">Flondy Development</div>
+    <div class="badge">Since 2014</div>
+  </div>
+
+  <div class="hero">
+    <div class="logo">FLONDY</div>
+    <div>
+      <h1>Downloads | Flondy Dev.</h1>
+      <p>Best mobile games, apps and software since 2014.</p>
+      <div class="quick">
+        <a class="btn" href="#downloads">⬇️ Downloads</a>
+        <a class="btn" href="#contact">✉️ Contact</a>
+        <a class="btn" href="#donate">💙 Donate</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="navgrid">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#contact">Contact</a>
+    <a href="#support">Support</a>
+    <a href="#donate">Donate</a>
+  </div>
+</nav>
+
+<section id="about">
+  <h2>About</h2>
+  <div class="panel">
+    <p>
+      Flondy Development is an independent developer project focused on apps,
+      software and experimental games. Active since 2014, driven by curiosity,
+      learning and continuous improvement.
+    </p>
+  </div>
+</section>
+
+<section id="downloads">
+  <h2>Downloads</h2>
+  <p>Here you find all my developed apps, software and projects.</p>
+  <div class="cards">
+    <div class="card">
+      <strong>Apps</strong>
+      <span>Mobile apps & smart games</span>
+    </div>
+    <div class="card">
+      <strong>Software</strong>
+      <span>Desktop tools & utilities</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="panel">
+    <p>
+      📧 E-Mail:
+      <a href="mailto:flondy.dev@gmail.com">flondy.dev@gmail.com</a><br><br>
+
+      📘 Facebook:
+      <a href="https://www.facebook.com/profile.php?id=61584586866428"
+         target="_blank" rel="noopener">
+        Flondy on Facebook
+      </a><br><br>
+
+      🔗 Linktree:
+      <a href="https://linktr.ee/Flondy"
+         target="_blank" rel="noopener">
+        linktr.ee/Flondy
+      </a>
+    </p>
+  </div>
+</section>
+
+<section id="support">
+  <h2>Support</h2>
+  <div class="panel">
+    <p>
+      You can support my work by rating my apps, sharing them or donating.
+      Every bit of feedback helps to improve future projects.
+    </p>
+  </div>
+</section>
+
+<section id="donate">
+  <h2>Donate</h2>
+  <p>If you want to support me directly:</p>
+  <a class="btn"
+     href="https://www.paypal.com/paypalme/MSingle72"
+     target="_blank" rel="noopener">
+    💙 Donate via PayPal
+  </a>
+</section>
+
+<footer>
+  <small><strong>Flondy Development</strong></small>
+  <small>© <span id="y"></span> – Clean single-page version</small>
+</footer>
+
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

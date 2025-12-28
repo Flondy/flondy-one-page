@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Flondy Development • Best mobile games, apps and software since 2014." />
+  <title>Flondy Development</title>
+
+  <!-- Optional: wenn du das Icon wirklich hast -->
+  <link rel="icon" href="img/tabicon.ico" />
+
+  <style>
+    :root{
+      --bg: #00ff00;
+      --card: #808080;
+      --footer: #6c6c6c;
+      --text: #000000;
+      --muted: rgba(0,0,0,.78);
+      --border: rgba(0,0,0,.22);
+      --shadow: 0 14px 36px rgba(0,0,0,.18);
+      --radius: 18px;
+      --max: 1050px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a{ color:inherit; }
+    img{ max-width:100%; height:auto; display:block; }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Top header card */
+    .header{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .topbar{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 16px;
+      background: rgba(0,0,0,.08);
+    }
+    .brand{
+      font-weight: 900;
+      letter-spacing: .2px;
+    }
+    .badge{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.10);
+      border: 1px solid rgba(0,0,0,.15);
+      white-space: nowrap;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      padding: 16px;
+      align-items:center;
+    }
+    .logo{
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,.22);
+      background: rgba(255,255,255,.18);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px;
+      min-height: 140px;
+    }
+    .hero h1{
+      margin:0 0 6px 0;
+      font-size: 22px;
+    }
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      line-height:1.4;
+    }
+    .quick{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.12);
+      border: 1px solid rgba(0,0,0,.18);
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* Sticky nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      margin-top: 14px;
+      background: rgba(0,255,0,.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0,0,0,.18);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(0,0,0,.12);
+      padding: 10px;
+    }
+    .navgrid{
+      display:grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .nav a{
+      text-decoration:none;
+      background: var(--card);
+      border: 2px solid rgba(0,0,0,.16);
+      border-radius: 14px;
+      padding: 10px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+      font-size: 13px;
+      text-align:center;
+      min-height: 44px;
+      box-shadow: inset 0 0 14px 2px rgba(0,255,0,.35);
+    }
+    .nav a:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+
+    /* Sections */
+    main{ margin-top: 14px; }
+    section{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin-top: 12px;
+    }
+    section h2{
+      margin:0 0 10px 0;
+      font-size: 18px;
+    }
+    .muted{ color: var(--muted); }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+      align-items:start;
+    }
+    .panel{
+      background: rgba(0,0,0,.06);
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .panel h3{
+      margin:0 0 8px 0;
+      font-size: 14px;
+    }
+    .panel ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height:1.5;
+      font-size: 14px;
+    }
+
+    /* Media blocks */
+    .mediaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 14px;
+      align-items:center;
+      justify-content:center;
+      margin-top: 12px;
+    }
+    .cardLink{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      text-decoration:none;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(0,0,0,.16);
+      border-radius: 16px;
+      padding: 12px;
+      min-width: 240px;
+      max-width: 100%;
+    }
+    .cardLink img{
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.14);
+      background: rgba(255,255,255,.12);
+    }
+    .cardLink strong{ display:block; }
+    .cardLink span{ display:block; font-size: 13px; color: var(--muted); }
+
+    /* Donate */
+    .donateBox{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items:center;
+    }
+    .donateForm{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .donateForm button{
+      appearance:none;
+      border: 0;
+      cursor:pointer;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.14);
+      border: 1px solid rgba(0,0,0,.18);
+      font-weight: 900;
+    }
+    .donateHint{
+      font-size: 13px;
+      color: var(--muted);
+      line-height:1.4;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 14px;
+      background: var(--footer);
+      border: 1px solid rgba(0,0,0,.25);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+    }
+    footer small{
+      display:block;
+      color: rgba(0,0,0,.85);
+      line-height:1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .navgrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero{ grid-template-columns: 1fr; }
+      .logo{ min-height: 120px; }
+      .grid2{ grid-template-columns: 1fr; }
+      .donateBox{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="home">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="topbar">
+        <div class="brand">Flondy Development</div>
+        <div class="badge">Best mobile games, apps & software since 2014</div>
+      </div>
+
+      <div class="hero">
+        <!-- Aus deinen Seiten: flondy3d.png -->
+        <div class="logo">
+          <img src="img/flondy3d.png" alt="Flondy" />
+        </div>
+        <div>
+          <h1>Downloads | Flondy Dev.</h1>
+          <p class="muted">
+            Flondy Development © • Best mobile games, apps and software since 2014.
+          </p>
+          <div class="quick">
+            <a class="btn" href="#downloads">⬇️ Downloads</a>
+            <a class="btn" href="#apps">📱 Apps</a>
+            <a class="btn" href="#software">⚙️ Software</a>
+            <a class="btn" href="#contact">✉️ Contact</a>
+            <a class="btn" href="#donate">💸 Donate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Navigation">
+      <div class="navgrid">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#support">Support</a>
+        <a href="#donate">Donate</a>
+        <a href="#downloads">Downloads</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2>About</h2>
+        <div class="panel">
+          <p class="muted" style="margin:0;">
+            (Deine hochgeladene <code>about.html</code> ist aktuell ohne Text-Content – nur Header/Nav.)
+            Wenn du mir kurz deinen About-Text gibst (oder du hast noch eine ältere Version), baue ich ihn exakt hier rein.
+          </p>
+        </div>
+      </section>
+
+      <!-- DOWNLOADS -->
+      <section id="downloads">
+        <h2>Downloads</h2>
+        <p class="muted" style="margin:0;">
+          Here you find all my developed apps software and games.
+        </p>
+
+        <div class="mediaRow">
+          <!-- Aus downloads.html: Links auf /software und /apps + Bilder -->
+          <a class="cardLink" href="#software">
+            <img src="img/zahnrad.gif" alt="Software" />
+            <div>
+              <strong>Software</strong>
+              <span>Zu meinen Software-Downloads</span>
+            </div>
+          </a>
+
+          <a class="cardLink" href="#software">
+            <img src="img/flondysoftwarefull.png" alt="Software" />
+            <div>
+              <strong>Flondy Software</strong>
+              <span>Alle entwickelten Tools</span>
+            </div>
+          </a>
+
+          <a class="cardLink" href="#apps">
+            <img src="img/flondyappsfull.png" alt="Apps" />
+            <div>
+              <strong>Flondy Apps</strong>
+              <span>Alle Apps & Smart-Games</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- APPS -->
+      <section id="apps">
+        <h2>Apps</h2>
+        <div class="panel">
+          <p class="muted" style="margin:0;">
+            Here you find all my developed apps/smart-games.
+          </p>
+        </div>
+      </section>
+
+      <!-- SOFTWARE -->
+      <section id="software">
+        <h2>Software</h2>
+        <div class="panel">
+          <p class="muted" style="margin:0;">
+            Here you find all my developed software.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2>Contact</h2>
+
+        <div class="grid2">
+          <div class="panel">
+            <p class="muted" style="margin:0; line-height:1.6;">
+              If you want to contact us you have multiple choices ...<br><br>
+              - Visit us on our Facebook Page below and like our page below.<br>
+              - Visit us on Twitter an follow us if you want to stay closer to us.<br>
+              - Contact us via Email to :
+              <a href="mailto:contact@flondy.com?subject=Dear%20Flondy%20Developers">contact@flondy.com</a><br><br>
+              Feel free to criticize and give suggestions,<br>
+              show me your ideas so i can update and improve my applications and software.<br><br>
+              Nice Greetings from :<br>
+              Flondy Dev.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Social Links</h3>
+            <ul>
+              <li>
+                Twitter/X:
+                <a href="https://twitter.com/Flondy_Dev" target="_blank" rel="noopener">twitter.com/Flondy_Dev</a>
+              </li>
+              <li>
+                Facebook Page:
+                <a href="https://www.facebook.com/pages/Flondy/703595876370289" target="_blank" rel="noopener">
+                  facebook.com/pages/Flondy/703595876370289
+                </a>
+              </li>
+            </ul>
+
+            <div class="mediaRow" style="justify-content:flex-start;">
+              <!-- Aus contact.html: twitter.png -->
+              <a class="cardLink" href="https://twitter.com/Flondy_Dev" target="_blank" rel="noopener">
+                <img src="img/twitter.png" alt="Twitter/X" />
+                <div>
+                  <strong>Follow on X</strong>
+                  <span>@Flondy_Dev</span>
+                </div>
+              </a>
+            </div>
+
+            <p class="donateHint" style="margin:10px 0 0 0;">
+              Hinweis: In deiner alten Contact-Seite war ein Facebook Like-Box Embed per externem Script drin.
+              Für “sauber & sicher” hab ich das Embed entfernt und nur die echten Links gelassen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPPORT -->
+      <section id="support">
+        <h2>Support</h2>
+        <div class="panel">
+          <p class="muted" style="margin:0; line-height:1.6; font-size: 16px;">
+            Here you can support me !<br><br>
+            You only have to click on the appstore links below<br>
+            where you can rate my apps and give a comment.<br><br>
+            Otherwise you want to donate me a little money<br>
+            you can do that in the donate tab.
+          </p>
+        </div>
+      </section>
+
+      <!-- DONATE -->
+      <section id="donate">
+        <h2>Donate</h2>
+        <p class="muted" style="margin:0;">
+          If you want to donate me here you can !
+        </p>
+
+        <div class="donateBox" style="margin-top:12px;">
+          <div class="panel">
+            <!-- Aus donate.html: paypalpic.jpg + donate button -->
+            <div class="mediaRow" style="justify-content:flex-start;">
+              <img src="img/paypalpic.jpg" alt="PayPal" style="max-width:260px; border-radius:14px; border:1px solid rgba(0,0,0,.14); background:rgba(255,255,255,.12);" />
+              <img src="img/pfeilu.gif" alt="" style="width:50px; height:80px; object-fit:contain;" />
+              <img src="img/donate.png" alt="Donate" style="max-width:320px; border-radius:14px; border:1px solid rgba(0,0,0,.14); background:rgba(255,255,255,.12);" />
+            </div>
+
+            <p class="donateHint" style="margin:10px 0 0 0;">
+              Du nutzt in deiner alten Seite einen PayPal “hosted button”.
+              Ich hab das hier sauber als Formular eingebaut.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>PayPal Donate</h3>
+
+            <!-- Aus donate.html: hosted_button_id = CDBTBXJWDTKLS -->
+            <form class="donateForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="CDBTBXJWDTKLS">
+              <button type="submit">💙 Jetzt via PayPal spenden</button>
+              <div class="donateHint">
+                Falls du lieber den Bild-Button verwenden willst, sag Bescheid – dann baue ich dir das pixelperfekt ein.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <small><strong>Flondy Development</strong></small>
+      <small>© <span id="year"></span> • Single-Page Version (clean, ohne dubiose Dritt-Skripte)</small>
+      <small style="margin-top:6px;">
+        <a href="#home">Home</a> •
+        <a href="#downloads">Downloads</a> •
+        <a href="#contact">Contact</a>
+      </small>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
